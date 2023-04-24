@@ -141,91 +141,7 @@ for i in range(20):
 
 
 
-class Dog_generator:
-    dogs_number = 0
-    chip_numbers = []
-    races = ["Labrador Retriever", "German Shepherd", "Golden Retriever", "Bulldog", "Boxer", "Chihuahua"]
-    pedigree_numbers = {}
-    branch_registration = {"Labrador Retriever": "LRCA", "German Shepherd": "GSDCA", "Golden Retriever": "GRCA",
-                           "Bulldog": "BCA", "Boxer": "BXCA", "Chihuahua": "CCA"}
-    colors = ["black", "white", "brown", "golden", "gray", "spotted"]
-    litters = [f"L{i:02d}" for i in range(1, 6)]
-    sex = ["M", "F"]
-    vaccinations_list = ["DHPP", "Rabies", "Bordetella", "Leptospirosis", "Lyme", "Parvovirus", "Rabies",
-                         "Rhinotracheitis", "Distemper", "Parainfluenza", "Adenovirus", "Coronavirus", "Parvovirus",
-                         "Canine Influenza", ]
-    dog_treatments = [
-        "Deworming",
-        "Flea and tick prevention",
-        "Heartworm prevention",
-        "Spaying or neutering",
-        "Dental cleaning",
-        "Ear cleaning",
-        "Eye drops or ointment",
-        "Medications for allergies",
-        "Pain relief medication",
-        "Antibiotics",
-        "Surgery",
-        "Chemotherapy",
-        "Radiation therapy",
-        "Behavioral therapy",
-        "Acupuncture",
-        "Chiropractic adjustments",
-        "Massage therapy",
-        "Hydrotherapy",
-        "Therapeutic exercise",
-        "Nutritional supplements",
-        "Prescription diet",
-        "Training and socialization classes"
-    ]
 
-    def __init__(self, dogs_number):
-        self.dogs_number = dogs_number
-        self.chip_numbers = [f"{random.randint(10000000, 99999999)}" for i in range(1, dogs_number)]
-        self.pedigree_numbers = {"Labrador Retriever": [f"L{i:03d}" for i in range(1, dogs_number)],
-                            "German Shepherd": [f"G{i:03d}" for i in range(1, dogs_number)],
-                            "Golden Retriever": [f"GR{i:03d}" for i in range(1, dogs_number)],
-                            "Bulldog": [f"B{i:03d}" for i in range(1, dogs_number)],
-                            "Boxer": [f"BX{i:03d}" for i in range(1, dogs_number)],
-                            "Chihuahua": [f"C{i:03d}" for i in range(1, dogs_number)]}
-
-    def get_dogs(self):
-        dog_data = []
-        for i in range(20):
-            chip_number = random.choice(self.chip_numbers)
-            race = random.choice(self.races)
-            owner_id = random.choice(owners_ids)
-            date_of_birth = f"{random.randint(2019, 2021)}-{random.randint(1, 12):02d}-{random.randint(1, 28):02d}"
-            pedigree_number = random.choice(self.pedigree_numbers[race])
-            branch_reg = self.branch_registration[race]
-            color = random.choice(self.colors)
-            litter = random.choice(self.litters)
-            medical_history = {"vaccinations": {f"{random.choice(self.vaccinations_list)}": {
-                "date": f"{random.randint(2022, 2023)}-{random.randint(1, 12)}-{random.randint(1, 27)}",
-                "given_by": f"Dr. {names.get_last_name()}"},
-                                                f"{random.choice(self.vaccinations_list)}": {
-                                                    "date": f"{random.randint(2022, 2023)}-{random.randint(1, 12)}-{random.randint(1, 27)}",
-                                                    "given_by": "Dr. Brown"}},
-                               "treatments": [{"name": f"{random.choice(self.vaccinations_list)}",
-                                               "date": f"{random.randint(2022, 2023)}-{random.randint(1, 12)}-{random.randint(1, 27)}",
-                                               "given_by": f"Dr. {names.get_last_name()}"},
-                                              {"name": f"{random.choice(self.vaccinations_list)}",
-                                               "date": f"{random.randint(2022, 2023)}-{random.randint(1, 12)}-{random.randint(1, 27)}",
-                                               "given_by": f"Dr. {names.get_last_name()}"}]}
-            dog = {"chip_number": chip_number,
-                   "race": race,
-                   "sex": random.choice(self.sex),
-                   "breeding": breeding,
-                   "owner_id": owner_id,
-                   "date_of_birth": date_of_birth,
-                   "pedigree_number": pedigree_number,
-                   "branch_reg": branch_reg,
-                   "color": color,
-                   "litter": litter,
-                   "medical_history": medical_history}
-            dog_data.append(dog)
-        json_data = json.dumps(dog)
-        return dog_data
 
 # use the class above and print dogs, every dog in single line
 dogs_number = 20
@@ -234,49 +150,7 @@ dogs = dog.get_dogs()
 for i in range(dogs_number):
     print(dogs[i])
 
-class Owner_genrator:
-    # properties of object
-    owners_number = 0
-    owners_ids = []
-    names = []
-    surnames = []
-    phone_numbers = []
-    emails = []
-    addresses = []
-    #cities = [random.choice(cities) for i in range(1, owners_number)]
-    zip_codes = []
-    #countries = [random.choice(countries) for i in range(1, owners_number)]
-    streets = ["Main Street", "High Street", "Park Avenue", "Broadway", "Wall Street", "Church Street", "Market Street"]
-    adjectives = ["New", "Old", "Great", "Big", "Little", "High", "Long", "Wide", "Thick", "Deep", "Small", "Large", "Flat", "Green", "Blue", "Red", "Yellow", "Orange", "Purple", "Pink", "Brown", "Black", "White", "Bright", "Dark", "Shiny", "Glossy", "Dull", "Rough", "Smooth", "Soft", "Hard", "Cold", "Warm", "Wet", "Dry", "Clean", "Dirty", "Round", "Square", "Rectangular", "Triangular", "Diamond", "Curved", "Straight", "Sharp", "Blunt", "Heavy", "Light", "Strong", "Weak", "Healthy", "Ill", "Happy", "Sad", "Tall", "Short", "Fat", "Thin", "Narrow", "Wide", "Fragrant", "Smelly", "Noisy", "Quiet", "Loud", "Quiet", "Slow"]
-    nouns = ["House", "Car", "Bike", "Tree", "Flower", "Grass", "Lake", "River", "Ocean", "Sky", "Mountain", "Valley", "Road", "Bridge", "Building", "School", "Hospital", "Park", "Museum", "Library", "Shop", "Restaurant", "Cafe", "Bar", "Pub", "Hotel", "Office", "Factory", "Warehouse", "Farm", "Garden", "Field", "Lake", "River", "Ocean", "Sky", "Mountain", "Valley", "Road", "Bridge", "Building", "School", "Hospital", "Park", "Museum", "Library", "Shop", "Restaurant", "Cafe", "Bar", "Pub", "Hotel", "Office", "Factory", "Warehouse", "Farm", "Garden", "Field", "Lake", "River", "Ocean", "Sky", "Mountain", "Valley", "Road", "Bridge", "Building", "School", "Hospital", "Park", "Museum", "Library", "Shop", "Restaurant", "Cafe", "Bar", "Pub", "Hotel", "Office", "Factory", "Warehouse", "Farm", "Garden", "Field", "Lake", "River", "Ocean", "Sky", "Mountain", "Valley", "Road", "Bridge", "Building", "School", "Hospital", "Park", "Museum", "Library", "Shop", "Restaurant", "Cafe", "Bar", "Pub", "Hotel", "Office", "Factory", "Warehouse", "Farm", "Garden", "Field", "Lake", "River", "Ocean", "Sky", "Mountain", "Valley", "Road", "Bridge", "Building", "School", "Hospital", "Park", "Museum", "Library", "Shop", "Restaurant", "Cafe", "Bar", "Pub", "Hotel", "Office", "Factory", "Warehouse", "Farm", "Garden", "Field"]
-    membership_types = ["Bronze", "Silver", "Gold"]
 
-    def __init__(self, owners_number):
-        self.owners_number = owners_number
-        self.owners_ids = [f"{random.randint(10000000, 99999999)}" for i in range(owners_number)]
-        self.names = [names.get_first_name() for i in range(owners_number)]
-        self.surnames = [names.get_last_name() for i in range( owners_number)]
-        self.phone_numbers = [f"{random.randint(100000000, 999999999)}" for i in range(owners_number)]
-        self.zip_codes = [f"{random.randint(10000, 99999)}" for i in range(owners_number)]
-        self.emails = [f"{self.names[i].lower()}.{self.surnames[i].lower()}@gmail.com" for i in range(owners_number)]
-        self.addresses = [f"{random.randint(1, 100)} {random.choice(self.streets)}" for i in range(owners_number)]
-
-    def get_owners(self):
-        owner_data = []
-        for i in range(self.owners_number):
-            owner = {"owner_id": self.owners_ids[i],
-                     "name": self.names[i],
-                     "surname": self.surnames[i],
-                     "kennel name": f"{random.choice(self.adjectives)} {random.choice(self.nouns)}",
-                     "membership status": random.choice(["active", "inactive"]),
-                     "membership type": random.choice(membership_types),
-                     "phone_number": self.phone_numbers[i],
-                     "email": self.emails[i],
-                     "address": self.addresses[i],
-                     "zip_code": self.zip_codes[i]}
-            owner_data.append(owner)
-        json_data = json.dumps(owner_data)
-        return owner_data
 
 # use above object
 owner = Owner_genrator(10)
