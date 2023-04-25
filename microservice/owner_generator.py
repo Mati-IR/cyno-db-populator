@@ -4,6 +4,8 @@ import names
 import random
 
 class OwnerGenerator:
+    owner_data = []
+
     # properties of object
     owners_number = 0
     owners_ids = []
@@ -30,8 +32,7 @@ class OwnerGenerator:
         self.emails = [f"{self.names[i].lower()}.{self.surnames[i].lower()}@gmail.com" for i in range(owners_number)]
         self.addresses = [f"{random.randint(1, 100)} {random.choice(self.streets)}" for i in range(owners_number)]
 
-    def get_owners(self):
-        owner_data = []
+    def generate_owners(self):
         for i in range(self.owners_number):
             owner = {"owner_id": self.owners_ids[i],
                      "name": self.names[i],
@@ -43,6 +44,9 @@ class OwnerGenerator:
                      "email": self.emails[i],
                      "address": self.addresses[i],
                      "zip_code": self.zip_codes[i]}
-            owner_data.append(owner)
-        json_data = json.dumps(owner_data)
-        return owner_data
+            self.owner_data.append(owner)
+        json_data = json.dumps(self.owner_data)
+        return self.owner_data
+
+    def get_owners(self):
+        return self.owner_data

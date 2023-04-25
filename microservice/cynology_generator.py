@@ -9,9 +9,9 @@ class CynologyGenerator:
     championships_data = []
 
     def regenerate_data(self):
-        self.owners_data = self.owner_generator.get_owners()
-        self.dogs_data = self.dog_generator.get_dogs()
-        self.championships_data = self.champion_generator.get_championships()
+        self.owners_data = self.owner_generator.generate_owners()
+        self.dogs_data = self.dog_generator.generate_dogs()
+        self.championships_data = self.champion_generator.generate_championships()
 
 
 #todo verify init

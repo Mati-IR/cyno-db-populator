@@ -2,6 +2,8 @@ import random
 import names
 import json
 class DogGenerator:
+    dog_data = []
+
     owners_ids = []
     dogs_number = 0
     chip_numbers = []
@@ -52,8 +54,7 @@ class DogGenerator:
                             "Boxer": [f"BX{i:03d}" for i in range(1, dogs_number)],
                             "Chihuahua": [f"C{i:03d}" for i in range(1, dogs_number)]}
 
-    def get_dogs(self):
-        dog_data = []
+    def generate_dogs(self):
         for i in range(20):
             chip_number = random.choice(self.chip_numbers)
             race = random.choice(self.races)
@@ -86,6 +87,9 @@ class DogGenerator:
                    "color": color,
                    "litter": litter,
                    "medical_history": medical_history}
-            dog_data.append(dog)
+            self.dog_data.append(dog)
         json_data = json.dumps(dog)
-        return dog_data
+        return self.dog_data
+
+    def get_dogs(self):
+        return self.dog_data
