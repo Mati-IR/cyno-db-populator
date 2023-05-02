@@ -98,7 +98,6 @@ class DogGenerator:
                    "race": race,
                    "sex": sex,
                    "name": random.choice(self.dog_names),
-                   #choose owner's breeding nickname
                    "breeding_nickname": breeding_nickname,
                    "owner_id": owner_id,
                    "date_of_birth": date_of_birth,
